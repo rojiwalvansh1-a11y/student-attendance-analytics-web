@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance Analytics</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <div class="header">
+        <h1>🎓 Student Attendance Analytics</h1>
+        <p>DSA Based Attendance Management Dashboard</p>
+    </div>
+
+    <!-- Dashboard -->
+
+    <div class="dashboard">
+
+        <div class="card">
+            <h3>Total Students</h3>
+            <h2 id="totalStudents">0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Average Attendance</h3>
+            <h2 id="averageAttendance">0%</h2>
+        </div>
+
+        <div class="card">
+            <h3>Top Student</h3>
+            <h2 id="topStudent">-</h2>
+        </div>
+
+        <div class="card">
+            <h3>Defaulters</h3>
+            <h2 id="defaulters">0</h2>
+        </div>
+
+    </div>
+
+    <!-- Forms -->
+
+    <div class="form-grid">
+
+        <div class="form-card">
+
+            <h2>➕ Add Student</h2>
+
+            <input type="number"
+                   id="studentId"
+                   placeholder="Student ID">
+
+            <input type="text"
+                   id="studentName"
+                   placeholder="Student Name">
+
+            <input type="text"
+                   id="studentBranch"
+                   placeholder="Branch">
+
+            <button onclick="addStudent()">
+                Add Student
+            </button>
+
+        </div>
+
+        <div class="form-card">
+
+            <h2>✅ Mark Attendance</h2>
+
+            <input type="number"
+                   id="attendanceId"
+                   placeholder="Student ID">
+
+            <select id="attendanceStatus">
+
+                <option value="Present">
+                    Present
+                </option>
+
+                <option value="Absent">
+                    Absent
+                </option>
+
+            </select>
+
+            <button onclick="markAttendance()">
+                Submit Attendance
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-card">
+
+        <h2>🔍 Search Student</h2>
+
+        <input type="number"
+               id="searchId"
+               placeholder="Student ID">
+
+        <button onclick="searchStudent()">
+            Search
+        </button>
+
+        <div id="searchResult"></div>
+
+    </div>
+
+    <!-- Analytics Buttons -->
+
+    <div class="analytics-buttons">
+
+        <button onclick="showTopStudents()">
+            🏆 Top Students
+        </button>
+
+        <button onclick="showDefaulters()">
+            ⚠️ Defaulters
+        </button>
+
+        <button onclick="sortStudents()">
+            📈 Sort Attendance
+        </button>
+
+        <button onclick="exportReport()">
+            📄 Export Report
+        </button>
+
+    </div>
+
+    <!-- Table -->
+
+    <div class="table-card">
+
+        <h2>📋 Student Records</h2>
+
+        <table>
+
+            <thead>
+
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Present</th>
+                <th>Total</th>
+                <th>Attendance %</th>
+                <th>Action</th>
+            </tr>
+
+            </thead>
+
+            <tbody id="studentTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
